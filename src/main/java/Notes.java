@@ -3,25 +3,25 @@ import java.util.Scanner;
 
 class Notes {
 	public static void main(String[] args) {
-		//create a fileReader
+		
+		// //fileReader
 
 		// FileReader inputStream = null;
 
 		// try {
-		// 	inputStream = new FileReader("testfile.txt"); //FileReader(filename)
+		// 	inputStream = new FileReader("file.txt"); //FileReader(filename)
 
 		// 	int c; //character by character
-
-		// 	while ((c = inputStream.read()) != -1) { //reading from the file
-		// 		//-1 means that the read() found no character
+		// 	while ((c = inputStream.read()) != -1) {
+		// 		//-1 means that read found no character
 		// 		System.out.print((char)c);
 		// 	}
 		// }
 		// catch (IOException e) {
 		// 	System.out.println(e);
 		// }
-		// finally { //runs regardless of whether the catch happens or not
-		// 	//finally even runs if the the function returned during the try or catch
+		// finally { //runs regardless of if the catch happens or not
+		// 	//finally runs even if the function has already returned
 		// 	try {
 		// 		if (inputStream != null) {
 		// 			inputStream.close();
@@ -32,13 +32,13 @@ class Notes {
 		// 	}
 		// }
 
-	
 
-		
+		//BufferedReader
+
 		// BufferedReader inputStream = null;
 
 		// try {
-		// 	inputStream = new BufferedReader(new FileReader("testfile.txt"));
+		// 	inputStream = new BufferedReader(new FileReader("file1.txt"));
 
 		// 	String line;
 		// 	//when readLine() == null, we have reached the end of the file
@@ -59,18 +59,21 @@ class Notes {
 		// 		System.out.println(e);
 		// 	}
 		// }
-		
 
 		Scanner s = null;
 
 		try {
-			s = new Scanner(new BufferedReader(new FileReader("testfile.txt")));
+			//s = new Scanner(new BufferedReader(new FileReader("testfile.txt")));
+			s = new Scanner(new File("file7.txt"));
 
 			while (s.hasNext()) { 
 				System.out.print(s.next() + " "); //.next stops at punctuation, spaces, and newlines
 			}
 		}
-		catch (IOException e) {
+		// catch (IOException e) {
+		// 	System.out.println(e);
+		// }
+		catch (FileNotFoundException e) {
 			System.out.println(e);
 		}
 		finally {
@@ -78,6 +81,7 @@ class Notes {
 				s.close();
 			}
 		}
+
 		/*
 		The scanner read in other data types besides strings
 		It can also validate that the information is that data 		
